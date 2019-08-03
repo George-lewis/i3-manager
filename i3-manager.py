@@ -4,8 +4,10 @@ from os import sep
 
 def main():
 
-    config = configparser.ConfigParser()
-    
+    #
+    # Argument parsing
+    #
+
     parser = argparse.ArgumentParser(description='Generate and manage i3 configuration files.')
 
     parser.add_argument('--verbose', '-v', action='count', help='Defines verbosity of output (-v, -vv, -vvv)',
@@ -22,10 +24,19 @@ def main():
     if args.verbose >= 2:
         print(args)
 
-    if args.config:
-        config.read(args.config)
-    else:
-        config.read(f'{Path.home()}{sep}.config{sep}i3-manager{sep}config.ini')
+    #
+    # Config
+    #
+
+    config = configparser.ConfigParser()
+
+    config_file = args.config if args.config else \
+                f'{Path.home()}{sep}.config{sep}i3-manager{sep}config.ini'
+
+    if not config.read(config_file):
+        raise ValueError(f'Could not load config file: "{config_file}"') # Config couldn't be found
+
+    
 
     
 
