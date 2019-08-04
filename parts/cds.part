@@ -1,0 +1,14 @@
+# This part file opens Chromium, Discord, and Spotify
+# And also places them in their own named workspaces
+
+set $ws1 "1: Chromium"
+set $ws2 "2: Discord"
+set $ws3 "3: Spotify"
+
+assign [class="discord"] $ws2
+assign [class="Chromium"] $ws1
+for_window [class="Spotify"] move to workspace $ws3
+
+exec --no-startup-id chromium
+exec --no-startup-id discord
+exec --no-startup-id spotify

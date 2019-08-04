@@ -1,0 +1,5 @@
+# Set wallpaper
+exec --no-startup-id nitrogen --restore
+
+# Start composite manager
+exec --no-startup-id compton -b
