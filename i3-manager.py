@@ -45,6 +45,9 @@ def generate(config_file, appconfig, verbosity):
            
             xsession = configparser.ConfigParser()
 
+            # Somehow, this makes configparser preseve capitalization
+            xsession.optionxform = str
+
             # Xsession files are ini-like
             xsession['Desktop Entry'] = {
 
