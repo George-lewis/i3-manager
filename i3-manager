@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-python i3-manager.py $*
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
+python $DIR/i3-manager.py $*
