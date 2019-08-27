@@ -11,6 +11,10 @@ def generate(config_file, appconfig, verbosity):
     os.makedirs(appconfig['Main']['configs_dir'], exist_ok=True)
     with open(f"{appconfig['Main']['configs_dir']}{sep}{config_file}") as file:
         config = hjson.load(file)
+        # Check if the config file contains a key named enable and if it's false
+        if 'enable' in config and config['enable'] is False:
+            print(f"Skipping generation of {config_file}, enable key set to false")
+            return
         if verbosity >= 2:
             print(f"Generating files for config: {config_file}")
 
