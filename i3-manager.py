@@ -57,9 +57,7 @@ def generate(config_file, appconfig, verbosity):
 
                 'Exec': f"i3 -c {os.path.abspath(eu(appconfig['Main']['i3_config_output']))}{sep}{filename}",
 
-                'TryExec': f"i3 -c {os.path.abspath(eu(appconfig['Main']['i3_config_output']))}{sep}{filename}",
-
-                'Type': 'XSession'
+                'Type': 'Application'
 
             }
            
