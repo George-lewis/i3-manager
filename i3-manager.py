@@ -102,6 +102,11 @@ def walk(directory, files_name):
 
 def main():
 
+    # We want everything to happen relative to the script location
+    # Uses the special variable __file__ and some os functions to
+    # Change the working directory to that of the script's location
+    os.chdir(os.path.abspath(os.path.dirname(__file__)))
+
     #
     # Argument parsing
     #
